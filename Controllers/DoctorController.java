@@ -36,42 +36,6 @@ public class DoctorController {
            view.showErrorMessage("El id ya se encuentra registrado.");
         }
     }
-
-    public void update(String cedula, String telefono){
-        Doctor doctor = new Doctor(cedula);
-        doctor=model.get(doctor);
-        if (doctor!=null){
-            doctor.setTelefono(telefono);
-            if (model.set(doctor))
-                view.showMessage("Cliente actualizado.");
-            else
-               view.showErrorMessage("Error al actualizar.");
-        }else{
-            view.showErrorMessage("Error cliente no encontrado");
-        }
-    }
-    
-    public void delete(String cedula){        
-        Doctor doctor = new Doctor(cedula);
-        doctor=model.get(doctor);
-        if (doctor!=null){
-            model.remove(doctor);
-            view.showMessage("Doctor eliminado.");
-        }else{
-            view.showErrorMessage("Error doctor no encontrado");
-        }
-    }
-    
-    
-    public void read(String cedula){
-        Doctor doctor = new Doctor(cedula);
-        doctor=model.get(doctor);
-        if (doctor!=null){
-            view.display(doctor);
-        }else{
-            view.showErrorMessage("Error doctor no encontrado");
-        }
-    }
     
     public void readAll(){
         List<Doctor> doctor=model.getAll();
