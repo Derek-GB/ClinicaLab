@@ -8,9 +8,12 @@ import java.util.List;
 
 /**
  *
- * @author jprod
+ * @author Tony
  */
-public interface IManager<T> extends IAppointment{
-   public boolean remove(T element);
-        
+public interface IResume<T> {
+     public boolean add(T element);
+     
+     public T get(T element);
+     
+      public List getAll();
 }

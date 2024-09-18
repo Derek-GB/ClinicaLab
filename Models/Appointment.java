@@ -5,7 +5,6 @@
 package Models;
 
 import java.time.LocalDate;
-
 /**
  *
  * @author Fernando
@@ -64,6 +63,4 @@ public class Appointment {
     }
       
       
-    
-
 }
