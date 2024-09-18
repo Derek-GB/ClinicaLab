@@ -14,51 +14,59 @@ import java.util.List;
  */
 public class CustomerSet implements IManager<Customer> {
 
-    private HashSet<Customer> set;
+      private HashSet<Customer> set;
 
     public CustomerSet() {
         set = new HashSet<>();
     }
-
+    
     @Override
-    public boolean add(Customer element) {
-        return set.add(element);
-    }
-
-    @Override
-    public Customer get(Customer element) {
-        for (Customer current : set) {
+    public boolean remove(Customer element) {
+         for (Customer current : set) {
             if (current.getId() == element.getId()) {
-                return current;
+                return set.remove(current);
             }
         }
-        return null;
+        return false;
+
     }
 
     @Override
     public boolean set(Customer element) {
-        for (Customer current : set) {
+           for (Customer current : set) {
             if (current.getId() == element.getId()) {
                 set.remove(current);
                 return set.add(element);
             }
         }
         return false;
+
     }
 
     @Override
-    public boolean remove(Customer element) {
-        for (Customer current : set) {
+    public boolean add(Customer element) {
+        return set.add(element);
+
+    }
+
+    @Override
+    public Customer get(Customer element) {
+         for (Customer current : set) {
             if (current.getId() == element.getId()) {
-                return set.remove(current);
+                return current;
             }
         }
-        return false;
+        return null;
+
     }
 
     @Override
     public List getAll() {
-        return new ArrayList<>(set);
+         return new ArrayList<>(set);
+
     }
+
+  
+
 
 }
