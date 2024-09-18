@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author jprod
  */
-public interface IManager<T> extends IAppointment{
+public interface IManager<T> extends IAppointment<T>{
    public boolean remove(T element);
         
 }

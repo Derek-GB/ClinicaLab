@@ -8,7 +8,7 @@ package Models;
  *
  * @author Tony
  */
-public interface IAppointment<T> extends IResume {
+public interface IAppointment<T> extends IResume<T> {
     
      public boolean set(T element);
 }
