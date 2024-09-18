@@ -20,6 +20,8 @@ public class CustomerAppointment {
         this.model = model;
         this.view = view;
     }
+    
+    
 
     
 }
