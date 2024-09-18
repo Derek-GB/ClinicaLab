@@ -77,7 +77,7 @@ public class Doctor {
     }
 
     public Doctor() {
-        this("",0,"",LocalDate.now(),"","","",0.0);
+        this("",0,"",null,"","","",0.0);
     }
     
     
