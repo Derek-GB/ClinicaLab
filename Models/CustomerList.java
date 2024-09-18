@@ -12,34 +12,24 @@ import java.util.List;
  * @author jprod
  */
 public class CustomerList implements IManager<Customer> {
-    private final List<Customer> customerList;
+      private final List<Customer> customerList;
 
     public CustomerList() {
         customerList = new ArrayList<>();
     }
-
     @Override
-    public boolean add(Customer customer){
-        Customer current = get(customer);
-        if(current!=null)
-            return false;
-        customerList.add(customer);
-        return true;
-    }
-
-    @Override
-    public Customer get(Customer customer) {
-        for (Customer current : customerList) {
-            if (current.getId() == customer.getId()) {
-                return current;
-            }
+    public boolean remove(Customer customer) {
+         if (customer != null && get(customer)!=null) {
+            customerList.remove(customer);
+            return true;
         }
-        return null;
+        return false;
+
     }
 
     @Override
-    public boolean set(Customer customer){
-        if (customer != null) {
+    public boolean set(Customer customer) {
+          if (customer != null) {
             Customer current=get(customer);
             if (current != null){
                 customerList.remove(current);
@@ -48,16 +38,28 @@ public class CustomerList implements IManager<Customer> {
             }
         }
         return false;
+
     }
 
-    
     @Override
-    public boolean remove(Customer customer) {
-        if (customer != null && get(customer)!=null) {
-            customerList.remove(customer);
-            return true;
+    public boolean add(Customer customer) {
+          Customer current = get(customer);
+        if(current!=null)
+            return false;
+        customerList.add(customer);
+        return true;
+
+    }
+
+    @Override
+    public Customer get(Customer customer) {
+          for (Customer current : customerList) {
+            if (current.getId() == customer.getId()) {
+                return current;
+            }
         }
-        return false;
+        return null;
+
     }
 
     @Override
@@ -67,4 +69,6 @@ public class CustomerList implements IManager<Customer> {
         }
         return customerList;
     }
+    
+
 }
